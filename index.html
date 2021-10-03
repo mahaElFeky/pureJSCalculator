@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link rel="icon" href="icon32.png" type="image/png" sizes="32x32">
+
+</head>
+
+<body>
+    <div class="flexContainer">
+        <div id="calculatorBody">
+            <div id="menu" class="flexContainer">
+                <img id="collapseBtn" src="collapseBtn.png" onclick="menuToggle()">
+                <h3 id="menuHeader"> Standard</h3>
+                <img id="historyIcon" src="historyIcon.png" onclick="showMemorybody()">
+            </div>
+            <div id="screen">
+                <div id="equation"></div>
+                <div id="constant"></div>
+                <div id="result"></div>
+            </div>
+
+            <div class="flexContainer" id="calButtons">
+                <div class="flexContainerCol" id="scientific1" style="display:none;">
+                    <div class="cellCol" onclick="showValue(`(`)">
+                        <h2>(</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`2powerN`)">
+                        <h2>2 <sup>nd</sup></h2>
+                    </div>
+
+                    <div class="cellCol" onclick="showValue(`!`)">
+                        <h2>n!</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`exp`)">
+                        <h2>exp</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`mod`)">
+                        <h2>mod</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`e`)">
+                        <h2>e</h2>
+                    </div>
+                </div>
+                <div class="flexContainerCol" id="scientific2" style="display: none;">
+                    <div class="cellCol" onclick="showValue(`)`)">
+                        <h2>)</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`xpower`)">
+                        <h2>x <sup>y</sup></h2>
+                    </div>
+
+                    <div class="cellCol" onclick="showValue(`10power`)">
+                        <h2>10 <sup>x</sup></h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`log`)">
+                        <h2>log</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`ln`)">
+                        <h2>ln</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`π`)">
+                        <h2>π</h2>
+                    </div>
+
+                </div>
+
+                <div class="flexContainerCol">
+                    <div class="cellCol" onclick="showValue(`denominator`)">
+                        <h2>1/x</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`sqr`)">
+                        <h2>x <sup>2</sup></h2>
+                    </div>
+
+                    <div class="cellCol" onclick="showValue(7)">
+                        <h2>7</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(4)">
+                        <h2>4</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(1)">
+                        <h2>1</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(0)">
+                        <h2>0</h2>
+                    </div>
+                </div>
+                <div class="flexContainerCol">
+
+
+                    <div class="cellCol" onclick="showValue(`ve`)">
+                        <h2>+/-</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`sqroot`)">
+                        <h2>√x</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(8)">
+                        <h2>8</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(5)">
+                        <h2>5</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(2)">
+                        <h2>2</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`zeros`)">
+                        <h2>00</h2>
+                    </div>
+                </div>
+                <div class="flexContainerCol">
+                    <div class="cellCol" onclick="clearAll()">
+                        <h2>c</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`%`)">
+                        <h2>%</h2>
+                    </div>
+
+                    <div class="cellCol" onclick="showValue(9)">
+                        <h2>9</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(6)">
+                        <h2>6</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(3)">
+                        <h2>3</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`.`)">
+                        <h2>.</h2>
+                    </div>
+                </div>
+                <div class="flexContainerCol">
+                    <div class="cellCol" onclick="showValue(`delete`)">
+                        <img src="delete.png" width="20" height="15">
+
+                    </div>
+                    <div class="cellCol" onclick="showValue(`/`)">
+                        <h2>/</h2>
+                    </div>
+
+                    <div class="cellCol" onclick="showValue(`*`)">
+                        <h2>*</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`-`)">
+                        <h2>-</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`+`)">
+                        <h2>+</h2>
+                    </div>
+                    <div class="cellCol" onclick="showValue(`=`)">
+                        <h2>=</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div id="memoryBody" style="display: none;">
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'history')">History</button>
+                <button class="tablinks" onclick="openTab(event, 'memory')">Memory</button>
+            </div>
+            <!-- Tab content -->
+            <div id="history" class="tabcontent">
+            </div>
+            <div id="memory" class="tabcontent">
+            </div>
+            <div id="hm" class="flexContainer"> <button onclick="deleteLastSaved()">M-</button>
+                <button onclick="saveInMemory()">MS</button>
+                <button id="trsh" onclick="clearTabContent()"></button>
+                <button id="calIcon" onclick="hideMemorybody()"></button>
+            </div>
+        </div>
+    </div>
+    <script type=" text/javascript" src="scripts.js"></script>
+</body>
+
+</html>
