@@ -12,24 +12,29 @@ let togglemenu = false;
 let historyP = [];
 let saveInMemoryArr = [];
 let activeTab;
-
+let standardWidth = document.getElementById("calculatorBody").offsetWidth;
+console.log(standardWidth);
 
 function menuToggle() {
     togglemenu = !togglemenu;
+
+
     if (togglemenu === true) {
+        let newWidth = standardWidth + 100;
         document.getElementById("menuHeader").innerHTML = "Scientific";
-        document.getElementById("calculatorBody").style.width = "600px";
-        document.getElementById("screen").style.width = "530px";
+        document.getElementById("calculatorBody").style.width = newWidth + `px`;
+        document.getElementById("screen").style.width = newWidth - 53 + `px`;
         document.getElementById("scientific1").style.display = "block";
         document.getElementById("scientific2").style.display = "block";
-        document.getElementById("historyIcon").style.left = "500px";
+        document.getElementById("historyIcon").style.left = newWidth - 78 + `px`;
+        document.getElementById("memoryBody").style.width = newWidth + `px`;
     } else {
         document.getElementById("menuHeader").innerHTML = "Standard";
-        document.getElementById("calculatorBody").style.width = "400px";
-        document.getElementById("screen").style.width = "352px";
+        document.getElementById("calculatorBody").style.width = standardWidth + `px`;
+        document.getElementById("screen").style.width = standardWidth - 40 + `px`;
         document.getElementById("scientific1").style.display = "none";
         document.getElementById("scientific2").style.display = "none";
-        document.getElementById("historyIcon").style.left = "325px";
+        document.getElementById("historyIcon").style.left = standardWidth - 65 + `px`;
     }
 
 }
@@ -52,6 +57,7 @@ function openTab(evt, tabname) {
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
+        // tablinks.offsetWidth = standardWidth / 2 + `px`;
     }
     document.getElementById(tabname).style.display = "block";
     evt.currentTarget.className += " active";

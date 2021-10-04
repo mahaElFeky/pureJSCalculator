@@ -40,8 +40,8 @@ sup {
 #collapseBtn,
 #historyIcon {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-top: 5px;
 }
 
@@ -116,7 +116,7 @@ sup {
     color: white;
     margin: 3px;
     box-shadow: 1px 1px 1px rgb(55, 91, 92);
-    width: 82px;
+    width: 60px;
     height: 50px;
     flex-grow: 1;
 }
@@ -126,7 +126,7 @@ sup {
 
 #memoryBody {
     position: absolute;
-    width: 400px;
+    width: 50%;
     height: 598px;
     border: 1px solid rgb(55, 91, 92);
     color: cadetblue;
@@ -151,7 +151,7 @@ sup {
     transition: 0.3s;
     font-size: 15px;
     font-weight: bold;
-    width: 200px;
+    width: 50%;
     color: cadetblue;
     /* box-shadow: 1px 1px 1px rgb(55, 91, 92); */
 }
@@ -215,20 +215,73 @@ sup {
     background-image: url(icon32.png);
     background-position: center;
     background-repeat: no-repeat;
-    /* left: 80%; */
-    width: 32px;
-    height: 32px;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    margin-left: 45px;
 }
 
 #calIcon:hover,
 #calIcon.active {
     background-image: url(icon32white.png);
-    /* box-shadow: 1px 1px 1px rgb(55, 91, 92); */
 }
 
-
-/* @media only screen and (max-width: 600px) {
-    #memoryBody {
-        display: none;
+@media only screen and (max-width: 450px) {
+    #calculatorBody {
+        width: 220px;
+        height: 400px;
     }
-} */
+    #memoryBody {
+        height: 400px;
+    }
+    #hm {
+        top: 350px;
+    }
+    #hm>button {
+        width: 35px;
+        height: 30px;
+    }
+    #menu {
+        width: 192px;
+        height: 30px;
+    }
+    #collapseBtn,
+    #historyIcon {
+        height: 25px;
+    }
+    #historyIcon {
+        left: 150px;
+    }
+    #screen {
+        top: 30px;
+        width: 180px;
+        height: 100px;
+    }
+    #equation,
+    #result,
+    #constant {
+        width: 192px;
+        height: 33px;
+    }
+    #result {
+        top: 66px;
+    }
+    #constant {
+        top: 33px;
+    }
+    #calButtons {
+        width: 192px;
+        height: 230px;
+        top: 150px;
+    }
+    .flexContainerCol {
+        height: 230px;
+        top: 150px;
+    }
+    .cellCol {
+        width: 35px;
+        height: 32px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
